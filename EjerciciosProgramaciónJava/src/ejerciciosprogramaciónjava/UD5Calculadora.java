@@ -15,9 +15,11 @@ package ejerciciosprogramaciónjava;
 import java.util.Scanner;
 public class UD5Calculadora 
 {
+    
+    
     public static void main(String[] args) 
     {
-        Scanner cin = new Scanner(System.in);
+        //Scanner cin = new Scanner(System.in);
         int opcion;
        do
        {
@@ -39,39 +41,71 @@ public class UD5Calculadora
            
        }while(opcion != 9);
     }
+    
+    //switch para entrar a las distintas opciones
     public static void opciones(int x) 
     {
         switch(x)
         {
+            //suma
             case 1:
+                
                 break;
                 
+            //restar
             case 2:
                 break;
                 
+            //multiplicar
             case 3:
                 break;
                 
+            //dividir
             case 4:
                 break;
                 
+            //area rect.
             case 5:
                 break;
                 
+            //area trin. eq.
             case 6:
+                
                 break;
                 
+            //area circulo
             case 7:
                 break;
                 
+            //funciones trigono
             case 8:
                 break;
                 
+            //salir
             case 9:
+                System.out.println("Has salido");
                 break;
                 
             default:
+                System.out.println("Opción no válida");
                 break;
         }
+    }
+    
+    
+    public static double pedir(int max, int min, String t)
+    {
+        Scanner cin = new Scanner(System.in);
+        System.out.print("Dime " + t + ": ");
+        
+        double valor = 
+        
+    }
+            
+    
+    public static double suma(double x, double y)
+    {
+        double resp = x + y;
+        return resp;
     }
 }

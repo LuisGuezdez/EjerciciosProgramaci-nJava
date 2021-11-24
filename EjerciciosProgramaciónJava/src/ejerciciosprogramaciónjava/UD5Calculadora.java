@@ -23,6 +23,7 @@ public class UD5Calculadora
         int opcion;
        do
        {
+           Scanner cin = new Scanner(System.in);
            //menu
            System.out.println("Elija una opción: \n" +
             "1. Suma (A + B)\n" +
@@ -38,7 +39,7 @@ public class UD5Calculadora
            
            opciones(opcion);
            
-           
+           System.out.println("");
        }while(opcion != 9);
     }
     
@@ -49,36 +50,42 @@ public class UD5Calculadora
         {
             //suma
             case 1:
-                
+                sout(suma());
                 break;
                 
             //restar
             case 2:
+                sout(resta());
                 break;
                 
             //multiplicar
             case 3:
+                sout(multiplicacion());
                 break;
                 
             //dividir
             case 4:
+                sout(division());
                 break;
                 
             //area rect.
             case 5:
+                sout(areaRect());
                 break;
                 
             //area trin. eq.
             case 6:
-                
+                sout(areaTri());
                 break;
                 
             //area circulo
             case 7:
+                sout();
                 break;
                 
             //funciones trigono
             case 8:
+                sout();
                 break;
                 
             //salir
@@ -93,19 +100,105 @@ public class UD5Calculadora
     }
     
     
-    public static double pedir(int max, int min, String t)
+    public static double pedir( int min, int max, String t)
     {
         Scanner cin = new Scanner(System.in);
-        System.out.print("Dime " + t + ": ");
+        double num;
+        do
+        {
+            System.out.print("Dime " + t + ": ");
+            num = cin.nextDouble();
+        }while(num < min && num > max);
         
-        double valor = 
-        
+        return num;
+    }
+    
+    public static void sout(double res)
+    {
+        System.out.println("Su resultado es: " + res);
     }
             
     
-    public static double suma(double x, double y)
+    public static double suma()
     {
+        double x = pedir(1, 0, "A");
+        double y = pedir(1, 0, "B");
         double resp = x + y;
         return resp;
     }
+    
+    public static double resta()
+    {
+        double x = pedir(1, 0, "A");
+        double y = pedir(1, 0, "B");
+        double resp = x - y;
+        return resp;
+    }
+    
+    public static double multiplicacion()
+    {
+        double x = pedir(1, 0, "A");
+        double y = pedir(1, 0, "B");
+        double resp = x * y;
+        return resp;
+    }
+    
+    public static double division()
+    {
+        double y, x, resp;  
+        System.out.println("B no puede ser 0");
+        x = pedir(1, 0, "A");
+        y = pedir(1, 0, "B");
+        
+            
+           
+        
+        resp = x / y;
+        
+        return resp;
+    }
+    
+    public static double areaRect()
+    {
+        double y, x, resp;
+        do
+        {    
+            x = pedir(0, 1000000, "la base");
+            y = pedir(0, 1000000, "la altura");
+            
+        }while(y < 0 && y > 1000000 || x < 0 && x > 1000000 );
+        
+        resp = x * y;
+        
+        return resp;
+    }
+    
+    public static double areaTri()
+    {
+        double y, x, resp;
+        do
+        {    
+            x = pedir(0, 1000000, "A");
+            y = pedir(0, 1000000, "B");
+            
+        }while(y < 0 && y > 1000000 || x < 0 && x > 1000000 );
+        
+        resp = (x * y / 2);
+        
+        return resp;
+    }
+    
+    public static double areaCir()
+    {
+        double x, resp;
+        do
+        {    
+            x = pedir(-360, 360, "el radio");
+            
+        }while(x < - && x > 1000000 );
+        
+        resp = x * y;
+        
+        return resp;
 }
+    
